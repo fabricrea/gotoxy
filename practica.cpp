@@ -19,28 +19,25 @@ void setColor(int textColor, int bgColor) {
 }
 
 // Función para dibujar un cuadro
-// Función para dibujar un cuadro utilizando caracteres ASCII extendidos
 void dibujarCuadro(int x1, int y1, int x2, int y2) {
     // Esquinas del cuadro
-    // Esquinas del cuadro
-    gotoxy(x1, y1); cout << u8"\u250F"; // Esquina superior izquierda
-    gotoxy(x2, y1); cout << u8"\u2513"; // Esquina superior derecha
-    gotoxy(x1, y2); cout << u8"\u2517"; // Esquina inferior izquierda
-    gotoxy(x2, y2); cout << u8"\u251B"; // Esquina inferior derecha
+    gotoxy(x1, y1); cout << char(187); // Esquina superior izquierda
+    gotoxy(x2, y1); cout << char(191); // Esquina superior derecha
+    gotoxy(x1, y2); cout << char(192); // Esquina inferior izquierda
+    gotoxy(x2, y2); cout << char(188); // Esquina inferior derecha
 
     // Líneas horizontales
     for (int i = x1 + 1; i < x2; ++i) {
-        gotoxy(i, y1); cout << u8"\u2501"; // Línea horizontal superior
-        gotoxy(i, y2); cout << u8"\u2501"; // Línea horizontal inferior
+        gotoxy(i, y1); cout << char(196); // Línea horizontal superior
+        gotoxy(i, y2); cout << char(196); // Línea horizontal inferior
     }
 
     // Líneas verticales
     for (int i = y1 + 1; i < y2; ++i) {
-        gotoxy(x1, i); cout << u8"\u2503"; // Línea vertical izquierda
-        gotoxy(x2, i); cout << u8"\u2503"; // Línea vertical derecha
+        gotoxy(x1, i); cout << char(179); // Línea vertical izquierda
+        gotoxy(x2, i); cout << char(179); // Línea vertical derecha
     }
 }
-
 // Función para llenar la matriz
 char** llenarMatriz(int &filas, int &columnas) {
     cout << "Ingrese el número de filas: ";
@@ -131,27 +128,32 @@ void menu() {
     do {
         system("cls");
         setColor(4, 7);  // Texto rojo (4), fondo gris (7)
-        dibujarCuadro(8, 1, 30, 5);
-        gotoxy(10, 2);
-        gotoxy(10, 3);
+        dibujarCuadro(30, 1, 80, 5);
+        gotoxy(45, 3);
         cout << " MENU DEL PROGRAMA " << endl;
         gotoxy(10, 4);
 
         setColor(4, 7);  // Texto rojo (4), fondo gris (7)
-        gotoxy(10, 6);
+        dibujarCuadro(20, 6, 90, 8);
+        gotoxy(30, 7);
         cout << "1. LLENAR MATRIZ CON CARACTERES" << endl;
-        gotoxy(10, 7);	
+        dibujarCuadro(20, 8, 90, 10);
+        gotoxy(30, 9);	
         cout << "2. MOSTRAR LA MATRIZ" << endl;
-        gotoxy(10, 8);
+        dibujarCuadro(20, 10, 90, 12);
+        gotoxy(30, 11);
         cout << "3. PASAR MAYUSCULAS TODOS LOS DATOS" << endl;
-        gotoxy(10, 9);
+        dibujarCuadro(20, 12, 90, 14);
+        gotoxy(30, 13);
         cout << "4. PASAR A MINUSCULA TODOS LOS DATOS" << endl;
-        gotoxy(10, 10);
+        dibujarCuadro(10, 14, 100, 16);
+        gotoxy(20, 15);
         cout << "5. CONTAR LA CANTIDAD DE VECES EN QUE SE ENCUENTRA UN CARACTER EN LA MATRIZ" << endl;
-        gotoxy(10, 11);
+        dibujarCuadro(20, 16, 90, 18);
+        gotoxy(30, 17);
         cout << "6. Salir\n" << endl;
 
-        gotoxy(10, 13);
+        gotoxy(40, 20);
         cout << "Ingresar una opcion: ";
         cin >> opc;
         cout << "\n";
